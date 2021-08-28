@@ -8,8 +8,8 @@ import {
   Image,
   BottomEdgeDown,
   BottomEdgeUp,
-  //Auteur,
-} from "../pageStyles/pageStyles"
+ Auteur,
+} from '../pageStyles/pageStyles'
 import { COLORS } from "../constants"
 
 const IndexPage = () => {
@@ -116,17 +116,17 @@ const IndexPage = () => {
         <div className="auteurs">
           <h2>Featured auteurs</h2>
           <div className="auteur-items">
-            {homePageFeaturedAuteurs.map(({ Auteur, slug }) => (
+            {homePageFeaturedAuteurs.map(({ auteursMeta, slug }) => (
               <Auteur key={slug} to={`/${slug}`}>
                 <Image
-                  fluid={Auteur.profiel.imageFile.childImageSharp.fluid}
-                  alt={Auteur.profiel.altText}
+                  fluid={auteursMeta.profiel.imageFile.childImageSharp.fluid}
+                  alt={auteursMeta.profiel.altText}
                 />
                 <div className="auteur-info">
                   <p>
-                    {Auteur.voornaam} {Auteur.achternaam}
+                    {auteursMeta.voornaam} {auteursMeta.achternaam}
                   </p>
-                  <p>{Auteur.publiekNaam}</p>
+                  <p>{auteursMeta.publiekNaam}</p>
                 </div>
               </Auteur>
             ))}

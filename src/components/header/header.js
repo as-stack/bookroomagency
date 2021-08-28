@@ -33,7 +33,7 @@ const Header = ({ siteTitle }) => {
   return (
     <HeaderWrapper>
       <Link to="/">
-        <Image alt="logo" fixed={logo.childImageSharp.fixed} />
+        <Image alt="logo bookroom-agency" fixed={logo.childImageSharp.fixed} />
       </Link>
       <Menu menuItems={menuItems.edges} />
     </HeaderWrapper>

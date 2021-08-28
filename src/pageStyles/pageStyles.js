@@ -128,7 +128,7 @@ export const Wrapper = styled.div`
     }
   }
 
-  .auteurs {
+  .auteur {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -162,7 +162,7 @@ export const Wrapper = styled.div`
   }
 `
 
-export const auteur = styled(Link)`
+export const Auteur = styled(Link)`
   display: flex;
   position: relative;
   width: 22vw;
