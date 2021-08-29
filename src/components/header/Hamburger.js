@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 const Hamburger = ({ handleOverlayMenu }) => {
   return (
     <HamburgerButton onClick={handleOverlayMenu} tabIndex="0">
-      <GiHamburgerMenu style={{ width: "3rem", height: "3rem" }} />
+      <GiHamburgerMenu style={{ width: "2rem", height: "2rem" }} />
     </HamburgerButton>
   )
 }

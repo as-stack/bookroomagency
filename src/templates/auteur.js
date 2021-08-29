@@ -1,14 +1,14 @@
-import React from "react"
+import * as React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Wrapper, Image } from "./templateStyles/auteurStyles"
 
-const AuteurTemplate = ({
+const auteurTemplate = ({
   data: {
     wpcontent: {
       auteur: {
-        auteur,
+       auteur,
         roles: { edges: roles },
       },
     },
@@ -19,7 +19,7 @@ const AuteurTemplate = ({
 
   return (
     <Layout>
-      <Seo title="Auteur" />
+      <Seo title="auteurs" />
       <Wrapper>
         <div className="auteur-container">
           <div className="auteur-image">
@@ -74,7 +74,7 @@ const AuteurTemplate = ({
   )
 }
 
-export default AuteurTemplate
+
 
 export const pageQuery = graphql`
   query($id: ID!) {
@@ -88,7 +88,7 @@ export const pageQuery = graphql`
           }
         }
         
-        auteursMeta{
+          auteursMeta{
           voornaam
           achternaam
           publiekNaam
@@ -144,8 +144,9 @@ export const pageQuery = graphql`
             }
           }
         }
-        
+        id
       }
     }
   }
 `
+export default auteurTemplate

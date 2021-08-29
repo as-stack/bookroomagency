@@ -50,7 +50,7 @@ export const Wrapper = styled.div`
         color: white;
         text-transform: uppercase;
         margin: auto;
-        border-bottom: solid 5px white;
+        
         margin-bottom: 1rem;
 
         @media (max-width: ${MEDIA_QUERIES.MEDIUM}) {

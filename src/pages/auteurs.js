@@ -18,8 +18,10 @@ const AuteursPage = () => {
       page: {
         auteursPageMeta: { auteursPageDescription, auteursPageHeaderPicture },
       },
-      auteurs: { edges: auteurs },
-    },
+      auteurs: { 
+        edges: auteurs 
+      },
+    }
   } = useStaticQuery(graphql`
     query {
       wpcontent {
@@ -63,12 +65,11 @@ const AuteursPage = () => {
                   }
             }
           }
+          slug
+        }
+          }
         }
       }
-    }
-      
-    
-  }
     }
   `)
 
@@ -84,24 +85,24 @@ const AuteursPage = () => {
           <BottomEdgeDown color={COLORS.SECONDARY} />
         </div>
         <div className="description">
-          <h2>We aijn de Bookroom-agency</h2>
+          <h2>We zijn een Bookroom-agency</h2>
           <p>{auteursPageDescription}</p>
           <BottomEdgeUp color={COLORS.BLACK} />
         </div>
         <div className="auteurs">
           <h2>Onze Auteurs</h2>
           <div className="auteur-items">
-            {auteurs.map(({ node: { auteurs, slug } }) => (
+            {auteurs.map(({ node: { auteursMeta, slug } }) => (
               <Auteur to={`/${slug}`} key={slug}>
                 <Image
-                  fluid={auteurs.profiel.imageFile.childImageSharp.fluid}
-                  alt={auteurs.profiel.altText}
+                  fluid={auteursMeta.profiel.imageFile.childImageSharp.fluid}
+                  alt={auteursMeta.profiel.altText}
                 />
                 <div className="auteur-info">
                   <p>
-                    {auteurs.firstName} {auteurs.lastName}
+                    {auteursMeta.voornaam} {auteursMeta.achternaam}
                   </p>
-                  {auteurs.artistName && <p>{auteurs.artistName}</p>}
+                  {auteursMeta.profielNaam && <p>{auteursMeta.profielNaam}</p>}
                 </div>
               </Auteur>
             ))}
