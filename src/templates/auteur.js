@@ -8,13 +8,14 @@ const auteurTemplate = ({
   data: {
     wpcontent: {
       auteur: {
-       auteur,
+       //auteur,
+       auteursMeta,
         roles: { edges: roles },
       },
     },
   },
 }) => {
-  const { boek1, boek2, boek3 } = auteur.boeken
+  const { boek1, boek2, boek3 } = auteursMeta.boeken
   const boeken = [boek1, boek2, boek3]
 
   return (
@@ -24,8 +25,8 @@ const auteurTemplate = ({
         <div className="auteur-container">
           <div className="auteur-image">
             <Image
-              fluid={auteur.profile.imageFile.childImageSharp.fluid}
-              alt={auteur.profile.altText}
+              fluid={auteursMeta.profiel.imageFile.childImageSharp.fluid}
+              alt={auteursMeta.profiel.altText}
             />
             <div className="roles">
               {roles.map(({ node: role }) => (
@@ -37,24 +38,24 @@ const auteurTemplate = ({
           </div>
           <div className="auteur-info">
             <h2>
-              {auteur.voornaam} {auteur.achternaam}
+              {auteursMeta.voornaam} {auteursMeta.achternaam}
             </h2>
-            {auteur.publiekNaam ? (
+            {auteursMeta.publiekNaam ? (
               <h3>
-                <span>{auteur.publiekNaam} -</span> <span>{auteur.regio}</span>
+                <span>{auteursMeta.publiekNaam} -</span> <span>{auteursMeta.regio}</span>
               </h3>
             ) : (
-              <h3>{auteur.regio}</h3>
+              <h3>{auteursMeta.regio}</h3>
             )}
-            <p className="description">{auteur.beschrijving}</p>
+            <p className="description">{auteursMeta.beschrijving}</p>
             <p className="info">
-              <strong>geboortedatum:</strong> {auteur.geboortedatum}
+              <strong>geboortedatum:</strong> {auteursMeta.geboortedatum}
             </p>
             <p className="info">
-              <strong>geboorteplaats:</strong> {auteur.geboorteplaats}
+              <strong>geboorteplaats:</strong> {auteursMeta.geboorteplaats}
             </p>
             <p className="info">
-              <strong>uitgeverij:</strong> {auteur.uitgeverij}
+              <strong>uitgeverij:</strong> {auteursMeta.uitgeverij}
             </p>
             
           </div>
@@ -73,7 +74,7 @@ const auteurTemplate = ({
     </Layout>
   )
 }
-
+export default auteurTemplate
 
 
 export const pageQuery = graphql`
@@ -149,4 +150,3 @@ export const pageQuery = graphql`
     }
   }
 `
-export default auteurTemplate
