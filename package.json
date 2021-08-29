@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.4.1",
+    "@netlify/plugin-gatsby": "^1.0.3",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.12.1",
     "gatsby-image": "^3.11.0",
