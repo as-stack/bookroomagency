@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { RiMailSendFill, RiPhoneLine, RiUserLocationLine } from "react-icons/ri"
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 import {
   Wrapper,
   Image,

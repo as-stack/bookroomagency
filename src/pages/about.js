@@ -1,8 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 import {
   Wrapper,
   Image,
@@ -15,13 +14,16 @@ const AboutUsPage = () => {
   const {
     wpcontent: {
       page: {
-        aboutUsPageMeta: { aboutUsDescription, aboutUsPageHeaderPicture },
+        aboutUsPageMeta: { 
+          aboutUsDescription, 
+          aboutUsPageHeaderPicture ,
+        },
       },
     },
   } = useStaticQuery(graphql`
     query {
       wpcontent {
-        page(id: "about-us", idType: URI) {
+        page(id: "about", idType: URI) {
           aboutUsPageMeta {
                 aboutUsDescription
                 aboutUsPageHeaderPicture {
@@ -43,7 +45,7 @@ const AboutUsPage = () => {
 
   return (
     <Layout>
-      <Seo title="About Us" />
+      <Seo title="About-Us" />
       <Wrapper descriptionColor={COLORS.PRIMARY}>
         <div className="banner">
           <Image

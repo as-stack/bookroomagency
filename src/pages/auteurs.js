@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 import {
   Wrapper,
   Image,
@@ -23,11 +23,10 @@ const AuteursPage = () => {
   } = useStaticQuery(graphql`
     query {
       wpcontent {
-        page(id: "auteurs", idType: URI) {
-      aboutUsPageMeta {
-        aboutUsDescription
-        aboutUsPageHeaderPicture {
-          altText
+    page( id: "auteurs" , idType: URI) {
+      auteursPageMeta {
+        auteursPageDescription
+        auteursPageHeaderPicture {
           sourceUrl
               imageFile {
                 childImageSharp {
@@ -36,12 +35,40 @@ const AuteursPage = () => {
                   }
                 }
               }
-             
+              altText
+        }
+      }
+    }
+    auteurs {
+      edges {
+        node {
+          auteursMeta {
+            voornaam
+            achternaam
+            publiekNaam
+            geboortedatum
+            geboorteplaats
+            beschrijving
+            uitgeverij
+            regio
+            profiel {
+              altText
+              sourceUrl
+              imageFile {
+                    childImageSharp {
+                      fluid(quality: 50, grayscale: true) {
+                        ...GatsbyImageSharpFluid_withWebp
+                      }
+                    }
+                  }
             }
           }
         }
-   
       }
+    }
+      
+    
+  }
     }
   `)
 
@@ -57,12 +84,12 @@ const AuteursPage = () => {
           <BottomEdgeDown color={COLORS.SECONDARY} />
         </div>
         <div className="description">
-          <h2>We are Obi Agency</h2>
+          <h2>We aijn de Bookroom-agency</h2>
           <p>{auteursPageDescription}</p>
           <BottomEdgeUp color={COLORS.BLACK} />
         </div>
         <div className="auteurs">
-          <h2>Our Artists</h2>
+          <h2>Onze Auteurs</h2>
           <div className="auteur-items">
             {auteurs.map(({ node: { auteurs, slug } }) => (
               <Auteur to={`/${slug}`} key={slug}>

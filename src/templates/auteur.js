@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Seo from "../components/Seo"
+import Seo from "../components/seo"
 import { Wrapper, Image } from "./templateStyles/auteurStyles"
 
 const AuteurTemplate = ({
@@ -87,7 +87,7 @@ export const pageQuery = graphql`
             }
           }
         }
-        id
+        
         auteursMeta{
           voornaam
           achternaam
