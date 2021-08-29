@@ -26,14 +26,14 @@ exports.createPages = ({ graphql, actions }) => {
     const auteurs = result.data.wpcontent.auteurs.edges
     auteurs.forEach(auteur => {
       const { id, slug } = auteur.node
-      /*createPage({
+     createPage({
         path: slug,
         component: path.resolve(`src/templates/auteur.js`),
         context: {
           id,
           slug,
         },
-      })*/
+      })
     })
   })                        
 }

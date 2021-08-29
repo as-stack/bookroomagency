@@ -128,7 +128,7 @@ export const Wrapper = styled.div`
     }
   }
 
-  .auteur {
+  .Auteur{
     display: flex;
     flex-direction: column;
     justify-content: center;
